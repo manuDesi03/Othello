@@ -1,6 +1,8 @@
 class Oth {
     private char[][] tabella;
     private final int DIM = 8;
+    private final char ch = 'X';
+    private final char ch2 = 'O';
 
     public Oth() {
         tabella = new char[DIM][DIM];
@@ -82,7 +84,6 @@ class Oth {
         if(r == 0) {
             if(col == 0) {
                 if(tabella[r][col+1] != player && tabella[r+1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -90,7 +91,6 @@ class Oth {
             }
             else if(col != 7){
                 if(tabella[r][col-1] != player && tabella[r][col+1] != player && tabella[r+1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -98,18 +98,16 @@ class Oth {
             }
             else {
                 if(tabella[r][col-1] != player &&  tabella[r+1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
                 }
             }
         }
-        
+
         if(r == 7) {
             if(col == 0) {
                 if(tabella[r][col+1] != player && tabella[r-1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -117,7 +115,6 @@ class Oth {
             }
             else if(col != 7){
                 if(tabella[r][col-1] != player && tabella[r][col+1] != player && tabella[r-1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -125,18 +122,16 @@ class Oth {
             }
             else {
                 if(tabella[r][col-1] != player &&  tabella[r-1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
                 }
             }
         }
-        
+
         if(r == 7) {
             if(col == 7) {
                 if(tabella[r][col-1] != player && tabella[r-1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -144,7 +139,6 @@ class Oth {
             }
             else if(col != 0){
                 if(tabella[r][col-1] != player && tabella[r][col+1] != player && tabella[r-1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -152,18 +146,16 @@ class Oth {
             }
             else {
                 if(tabella[r][col+1] != player &&  tabella[r-1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
                 }
             }
         }
-        
+
         if(col == 7) {
             if(r == 0) {
                 if(tabella[r][col-1] != player && tabella[r+1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -171,7 +163,6 @@ class Oth {
             }
             else if(r != 7){
                 if(tabella[r][col-1] != player && tabella[r+1][col] != player && tabella[r-1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -179,18 +170,16 @@ class Oth {
             }
             else {
                 if(tabella[r][col-1] != player &&  tabella[r-1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
                 }
             }
         }
-        
+
         if(col == 0) {
             if(r == 0) {
                 if(tabella[r][col+1] != player && tabella[r+1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -198,7 +187,6 @@ class Oth {
             }
             else if(r != 7){
                 if(tabella[r][col+1] != player && tabella[r+1][col] != player && tabella[r-1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -206,7 +194,6 @@ class Oth {
             }
             else {
                 if(tabella[r][col+1] != player &&  tabella[r-1][col] != player) {
-                    //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
                     tabella[r][col] = player;
                     player = change(player);
                     scambiaPedina(r, col, player);
@@ -224,7 +211,6 @@ class Oth {
             player = control(r, col, player);
         }
         else if(tabella[r][col-1] != player && tabella[r-1][col] != player && tabella[r][col+1] != player && tabella[r+1][col] != player) {
-            //MODIFICARE CONTROLLO PER NON CRASHARE NEI BORDI
             tabella[r][col] = player;
             player = change(player);
             scambiaPedina(r, col, player);
@@ -267,23 +253,75 @@ class Oth {
         if(modalita == 1) {
             play();
         }
+        else {
+            System.out.println("Ci dispiace... Gli sviluppatori si son dimenticati della parte del bot");
+        }
+    }
+
+    public int contaPedine(char ch) {
+        int cnt = 0;
+        for(int i = 0; i < 7; i++) {
+            for(int k = 0; k < 7; k++) {
+                if(tabella[i][k] == ch) {
+                    cnt++;
+                }
+            }
+        }
+        return cnt;
+    }
+
+    public int contaPedineO(char ch2) {
+        return contaPedine(ch2);
+    }
+
+    public void vincitore(int pedineX, int pedineO) {
+        int vincita = pedineX - pedineO;
+        if(vincita < 0) {
+            System.out.println("Ha vinto il giocatore O");
+        }
+        else {
+            System.out.println("Ha vinto il giocatore X");
+        }
+    }
+
+    public boolean controlloFine() {
+        for(int i = 0; i < 7; i++) {
+            for(int k = 0; k < 7; k++) {
+                if(tabella[i][k] == '-') {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public void play() {
         char currentPlayer = 'X';
 
-        while (true) {
-            System.out.println("Turno del giocatore " + currentPlayer);
-            stampa();
+        boolean x = controlloFine();
+        if(x == true) {
+            int pedineX = contaPedine(ch);
+            int pedineO =contaPedineO(ch2);
+            vincitore(pedineX, pedineO);
+        }
+        else {
+            while (true) {
 
-            // Input del giocatore
-            System.out.print("Inserisci la riga: ");
-            int row = Leggi.unInt();
-            System.out.print("Inserisci la colonna: ");
-            int col = Leggi.unInt();
+                System.out.println("Turno del giocatore " + currentPlayer);
+                stampa();
 
-            // Esegui la mossa
-            currentPlayer = makeMove(row, col, currentPlayer);
+                // Input del giocatore
+                System.out.print("Inserisci la riga: ");
+                int row = Leggi.unInt();
+                System.out.print("Inserisci la colonna: ");
+                int col = Leggi.unInt();
+
+                // Esegui la mossa
+                currentPlayer = makeMove(row, col, currentPlayer);
+            }
         }
     }
 }
