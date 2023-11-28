@@ -1,5 +1,5 @@
 class Oth {
-    private char[][] tabella;
+    char[][] tabella;
     private final int DIM = 8;
     private final char ch = 'X';
     private final char ch2 = 'O';
@@ -278,38 +278,43 @@ class Oth {
         int vincita = pedineX - pedineO;
         if(vincita < 0) {
             System.out.println("Ha vinto il giocatore O");
+            System.exit(0);
         }
         else {
             System.out.println("Ha vinto il giocatore X");
+            System.exit(0);
         }
     }
 
     public boolean controlloFine() {
-        for(int i = 0; i < 7; i++) {
-            for(int k = 0; k < 7; k++) {
+        boolean x = false;
+        for(int i = 0; i < DIM-1; i++) {
+            for(int k = 0; k < DIM-1; k++) {
                 if(tabella[i][k] == '-') {
-                    return false;
+                    x = false;
+                    return x;
                 }
                 else {
-                    return true;
+                    x = true;
                 }
             }
         }
-        return false;
+        return x;
     }
 
     public void play() {
         char currentPlayer = 'X';
 
-        boolean x = controlloFine();
-        if(x == true) {
-            int pedineX = contaPedine(ch);
-            int pedineO =contaPedineO(ch2);
-            vincitore(pedineX, pedineO);
-        }
-        else {
-            while (true) {
+        boolean x;
 
+        while (true) {
+            x = controlloFine();
+            if(x == true) {
+                int pedineX = contaPedine(ch);
+                int pedineO = contaPedineO(ch2);
+                vincitore(pedineX, pedineO);
+            }
+            else {
                 System.out.println("Turno del giocatore " + currentPlayer);
                 stampa();
 
